@@ -1,0 +1,1585 @@
+/*
+Theme Name: custom-theme
+Theme URI: https://wordpress.org/themes/custom-theme/
+Author: the WordPress team
+Author URI: https://wordpress.org/
+Description: Twenty Seventeen brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device.
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: custom-theme
+Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+a:hover {
+    text-decoration: none !important;
+    color: #3a7136 !important;
+}
+
+a {
+    color: #422b01;
+    text-decoration: none;
+}
+
+a:visited {}
+
+
+a:focus {
+    outline: thin dotted;
+}
+
+p{
+    line-height: 25px;
+}
+p.default{ width: 100%;font-size: 16px; }
+h1.default{font-size: 39px;}
+@font-face {
+    font-family: ubuntu_bold;
+    src: url("assets/fonts/Ubuntu-B.ttf") format("truetype");
+}
+@font-face {
+    font-family: ubuntu_default;
+    src: url("assets/fonts/Ubuntu-L.ttf") format("truetype");
+}
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+    color: #333;
+}
+
+body {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    background-color: white;
+}
+.left {
+    float: left;
+}
+.bg-white{
+    background-color:#f3f5f3;
+}
+.right {
+    float: right;
+}
+
+.center {
+    text-align: center;
+}
+.bold {
+    font-weight: bold;
+}
+.no-space{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.col-img-4{
+  width: 20%;
+
+}
+.clear {
+    clear: both;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.color-white{
+    color:white !important;
+}
+.padding-img{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+.color-black{
+    color:black !important;
+}
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate
+ * Also: hot pink! (or customize the background color to match your design)
+ */
+
+::-moz-selection {
+    background: #fe57a1;
+    color: #fff;
+    text-shadow: none;
+}
+
+::selection {
+    background: #f0a735;
+    color: #fff;
+    text-shadow: none;
+}
+
+/* =============================================================================
+   Desktop Nav
+   ========================================================================== */
+.menu-header{list-style:none;display: flex; justify-content: flex-end; flex-direction: row;} 
+.menu-header > li {
+    list-style: none !important;
+    font-size: 24px;
+    float: left;
+    width: auto;
+    text-align: center;
+    display: list-item;
+    color:white;
+    width: auto;
+}
+
+.menu-header > li > a {
+    color: #000000;
+    display: block;
+    font-family: 'ubuntu_default';
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+    float: none;
+    font-weight: 600;
+    width: 100%;
+    padding: 20px 20px;
+}
+.menu-header > li > a:hover {
+    color: #000000 !important;
+    background-color: #e5e5e5;
+}
+.header-logo{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    z-index: 1;
+    margin-left: 20px;
+}
+/* =============================================================================
+   Mobile Nav
+   ========================================================================== */
+.menu-header-mobile > li {
+    width: auto;
+    list-style: none !important;
+    font-size: 24px;
+    margin-right: 25px;
+    max-width: 190px;
+    margin-top: 12px;
+}
+.menu-header-mobile > li > a {
+    color: white;
+}
+/* Navigation Menu - Background */
+.navigation {
+  /* critical sizing and position styles */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  
+  /* non-critical appearance styles */
+  list-style: none;
+  background: #ececec;
+}
+
+/* Navigation Menu - List items */
+.nav-item {
+  /* non-critical appearance styles */
+  width: 200px;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-item a {
+  /* non-critical appearance styles */
+  display: block;
+  padding: 10px;
+
+  color: #101010;
+  font-size: 17px;
+  text-decoration: none;
+  transition: color 0.2s, background 0.5s;
+}
+
+.nav-item a:hover {
+  color: #dd902c !important;
+}
+.banner {
+  margin-top: 40px;
+}
+.banner > h1{
+  margin: 0px;
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 60px;
+  color: white;
+  letter-spacing: 3px;
+  background-color: #3a7136;
+}
+.banner > .line-1{
+  width: 1250px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.banner > .line-2{
+  width: 660px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.banner > p{
+    color: #fbfbfb;
+    width: 705px;
+    font-size: 19px;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+/* Site Wrapper - Everything that isn't navigation */
+.site-wrap {
+  /* Critical position and size styles */
+  min-height: 100%;
+  min-width: 100%;
+  background-color: white; /* Needs a background or else the nav will show through */
+  position: relative;
+  top: 0;
+  padding: 0px !important;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+  
+  /* non-critical apperance styles */
+  padding: 4em;
+  background-image: white;
+  background-size: 200%;
+}
+
+/* Nav Trigger */
+.nav-trigger {
+  /* critical styles - hide the checkbox input */
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+label[for="nav-trigger"] {
+  /* critical positioning styles */
+  z-index: 2;
+  color:white;
+  cursor: pointer;
+}
+
+/* Make the Magic Happen */
+.site-wrap {
+  transition: left 0.2s;
+}
+
+.nav-trigger:checked +  label{
+  left: 215px;
+}
+
+.nav-trigger:checked ~ div.site-wrap{
+  position: relative;
+  left: 200px !important;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,0.5) !important;
+}
+/* Micro reset */
+*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
+html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-serif; }
+
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+
+
+/* Improve readability when focused and hovered in all browsers: h5bp.com/h */
+img.custom-logo {
+    width: 455px;
+    height: 175px;
+}
+.owl-dots{
+    display: block;
+    position: relative;
+    bottom: 70px;
+}
+.owl-content{
+    padding-top: 90px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+u.default{
+    text-decoration: none;
+    border-bottom: 2px solid #4244c6;
+}
+.content > h1{
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    color: #4244c7;
+}
+.content > hr{
+    margin-top: 28px;
+    width: 160px;
+    margin: 10px auto;
+    margin-bottom: 60px;
+    border: 0;
+    border-top: 7px solid #3a7136;
+}
+a:hover,
+a:active {
+    outline: 0;
+}
+/* Home CSS */
+.banner > h2{
+    font-size: 35px;
+  
+}
+.banner > a{
+    background-color: #db8f2b;
+    font-size: 29px;
+    color: white;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 45px;
+    padding-left: 45px;
+    border-radius: 38px;
+}
+.banner > a:hover{
+    color:white !important;
+}
+.home{
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.home > h2{
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.contact-icon{
+    margin-top: 3px;
+    margin-right: 1px;
+    font-size: 36px;
+    color: #3a7136;
+    position: relative;
+    top: 4px;
+}
+.title{
+    margin-bottom: 25px;
+}
+/* Services CSS */
+.service-area{
+  padding: 30px;
+}
+.bolder{
+  font-weight: 900;
+}
+.service{
+    padding: 30px;
+}
+.service-area > section > div > h1{
+    font-size: 35px;
+    font-weight: 900;
+    margin-top: 0px;
+}
+.service-area > section > div > p {
+    font-size: 19px;
+    line-height: 27px;
+}
+.service > a:hover{
+    color: #db8f2b !important;
+}
+.service > a > h2 {
+    font-weight: 900;
+    font-size: 26px;
+}
+.service > a > p {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: left;
+}
+.button-mobile{
+  display: none;
+}
+.button-desktop{
+  display: inline;
+}
+.color-blue {
+    color:#5f60ff;
+}
+.color-gray {
+    color: #888585;
+    margin-bottom: 17px !important;
+}
+.color-white {
+    color: white;
+}
+
+.project{
+   margin-top: 40px;margin-bottom: 40px;
+}
+img.cover{
+    width: 100%;
+    height: 100%
+}
+img.cover-service{
+    width: 100%;  
+}
+.hidden {
+    display: none;
+}
+.service-block{
+    padding-top: 0px;
+    padding-bottom: 45px;
+    margin-bottom: 45px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: white;
+    box-shadow: 4px 5px 30px #adadad;
+    margin-right: 32px;
+}
+
+.service-block > a > h2{
+    font-size: 22px;
+    font-family: 'ubuntu_default';
+    font-weight: 600;
+    color: black;
+    margin-bottom: 5px; 
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.project-right{
+    position: relative;
+    top: 80%;
+    transform: translateY(75%);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.project-left{
+    position: relative;
+    top: 80%;
+    transform: translateY(75%);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.project-right > h2 {
+    font-size: 28px;
+    margin-bottom: 21px;
+    font-weight: 600;
+}
+.project-right > p {
+    width: 95%;
+    text-align: left;
+}
+.project-left > h2 {
+    font-size: 28px;
+    margin-bottom: 21px;
+    text-align: right;
+    font-weight: 600;
+}
+.project-left > p {
+    width: 100%;
+    text-align: right;
+}
+.service-block > p{
+    text-align: justify;
+    padding: 30px;
+}
+
+.content > h1 {
+  line-height: 43px;
+}
+/* 2nd banner */
+.banner-b {
+    padding-top: 85px;
+    padding-bottom: 85px;
+}
+.banner-b > h1{
+  margin-bottom: 0px;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 55px;
+}
+.banner-b > a{
+    background-color: #db8f2b;
+    font-size: 29px;
+    color: white;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 45px;
+    padding-left: 45px;
+    border-radius: 38px;
+}
+.banner-b > a:hover{
+    color:white !important;
+}
+/* Footer CSS */
+.footer-container{
+  padding-bottom: 75px;
+  padding-top: 80px; 
+}
+.footer-content{
+  padding-left: 30px;
+}
+.widget-img{
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer-content > h4 > a, .footer-content > section > div > h4 > a{
+  font-size: 17px;
+  margin-bottom: 5px;
+  color: black;
+  font-family: 'ubuntu_default';
+}
+.footer-content > h4, .footer-content > section > div > h4 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: black;
+    font-family: 'ubuntu_default';
+}
+.footer-content > h5, .footer-content > section > div > h5 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: black;
+    font-family: 'ubuntu_default';
+}
+.footer-content > h6, .footer-content > section > div > h6 {
+    font-size: 18px;
+}
+.footer-content > h7, .footer-content > section > div > h7 {
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
+}
+.footer-content > p, .footer-content > section > div > p {
+    font-size: 30px;
+    color: black;
+    font-size: 17px;
+    margin-bottom: 4px !important;
+}
+.footer-logo > a > img.custom-logo {
+    width: 294px;
+    height: 45px;
+}
+
+/* Page */
+.page-content{
+  padding: 40px !important;
+}
+.page-title{
+  color:black;
+  text-align: left;
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 15px;
+  line-height: 40px;
+}
+.page-content > p {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+.page-content > ul{
+    margin-left: 35px;
+}
+/* Inner page form layout */
+.input-form-text {
+    width: 100%;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #b9b1b1;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+.input-message{
+    width: 100%;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #b9b1b1;
+    margin-bottom: 20px;  
+    height: 100px;
+    letter-spacing: 1px;
+}
+
+.submit-button {
+    background-color: #3a7136;
+    border: 1px solid white;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: white;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+.form{
+    padding:20px;
+}
+.form-title > h3{
+    font-size: 27px;
+    padding-bottom: 10px;
+    font-weight: 100;
+}
+section.page-section {
+    position: relative;
+    bottom: 15px;
+}
+/* slider */
+i.fa.fa-angle-left,i.fa.fa-angle-right {
+    font-size: 60px;
+}
+.owl-theme, .owl-theme .owl-nav{
+  text-align: initial !important;
+}
+.owl-next {
+    float: right;
+}
+.owl-theme .owl-nav [class*=owl-]:hover {
+    background: none;
+    color: white;
+    text-decoration: none;
+}
+.owl-prev {
+    float: left;
+}
+.owl-nav {
+    position: relative;
+    bottom: 340px;
+    padding: 15px;
+}
+.owl-theme .owl-nav [class*=owl-]{
+  background:none;
+}
+/* consult css */
+.consult > section > div > p,.consult > p{
+  font-family: 'ubuntu_default';
+  font-size: 18px;
+  font-weight: 600;
+  width: 90%;
+  text-align: justify;
+}
+.consult > a{
+  font-family: 'ubuntu_default';
+  font-size: 24px;
+  margin-left: 110px;
+  font-weight: 900;
+  text-align: center;
+  width: 345px;
+  border-radius: 15px;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #4d913d;
+  display: block;
+  box-shadow: 4px 5px 30px #adadad;
+}
+/* about */
+.about > section > div > p,.about > p{
+  font-family: 'ubuntu_default';
+  font-size: 20px;
+  color:white;
+  letter-spacing: 1px;
+  font-weight: 600;
+  width: 85%;
+  text-align: justify;
+}
+/* Screen Layout CSS */
+@media (max-width: 2560px) {
+    .desktop-menu{
+        display: block;
+    }
+    .mobile-menu{
+        display: none;
+    }
+    .service-container > .col-md-4{
+          width: 30%;
+    }
+}
+@media (max-width: 1345px) {
+  .banner > h1 {
+      margin: 0px;
+      font-size: 50px;
+      font-weight: 900;
+      line-height: 60px;
+      color: white;
+      letter-spacing: 3px;
+      background-color: #3a7136;
+  }
+  .banner > .line-1 {
+      width: 1070px !important;
+  }
+  .banner > .line-2 {
+      width: 595px !important;
+  }
+}
+@media (max-width: 1270px) {
+  .banner > h1 {
+      margin: 0px;
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 60px;
+      color: white;
+      letter-spacing: 3px;
+      background-color: #3a7136;
+  }
+  .banner > .line-1 {
+      width: 870px !important;
+  }
+  .banner > .line-2 {
+      width: 450px !important;
+  }
+}
+@media (max-width: 1260px){
+  .footer-logo > a > img.custom-logo {
+      width: 100%;
+      height: 100%;
+  }
+}
+@media (max-width: 1220px){
+    .service-container > .col-md-4{
+          width: 46%;
+          float:left;
+          margin-right: 35px;
+    }
+    .menu-header > li > a {
+        color: #000000;
+        display: block;
+        font-family: 'ubuntu_default';
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-align: center;
+        float: none;
+        font-weight: 600;
+        width: 100%;
+        padding: 23px 15px;
+    }
+    img.custom-logo {
+        width: 364px;
+        height: 140px;
+    }
+    .header-logo {
+        position: absolute;
+        top: 20px;
+        bottom: 0px;
+        z-index: 1;
+        margin-left: 27px;
+    }
+}
+@media (max-width: 1180px) {
+
+    .project-right {
+        position: relative;
+        top: 80%;
+        transform: translateY(55%);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .project-left {
+        position: relative;
+        top: 80%;
+        transform: translateY(55%);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}
+@media (max-width: 1130px) {
+    .rayzor-header{
+        font-size: 15px;
+    }
+    .project-right {
+        position: relative;
+        top: 80%;
+        transform: translateY(35%);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .project-left {
+        position: relative;
+        top: 80%;
+        transform: translateY(35%);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media (max-width: 1080px){
+  .menu-header > li > a {
+      color: #000000;
+      display: block;
+      font-family: 'ubuntu_default';
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-align: center;
+      float: none;
+      font-weight: 600;
+      width: 100%;
+      padding: 25px 17px;
+  }
+}
+@media (max-width: 1040px) {
+  .banner {
+      margin-top: 50px;
+  }
+  .banner > h1 {
+      margin: 0px;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 60px;
+      color: white;
+      letter-spacing: 3px;
+      background-color: #3a7136;
+  }
+  .banner > .line-1 {
+      width: 670px !important;
+  }
+  .banner > .line-2 {
+      width: 350px !important;
+      position: relative;
+      bottom: 20px;
+  }
+}
+@media (max-width: 991px) {
+    .about > section > div > p, .about > p {
+        width: 100% !important;
+        text-align: justify;
+    }
+    .col-md-5.left.about{
+      width: 100% !important;
+    }
+    .service-container > .col-md-4{
+          width: 100%;
+          float:left;
+          margin-right: 0px;
+    }
+    .consult > p{
+      width: 95% !important;
+    }
+    .about > p{
+      font-family: 'ubuntu_default';
+      font-size: 18px;
+      color:white;
+      letter-spacing: 1px;
+      font-weight: 600;
+      width: 95%;
+      text-align: justify;
+    }
+    .col-md-6.left.consult{
+      width: 100% !important;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .consult > a{
+      font-family: 'ubuntu_default';
+      font-size: 20px;
+      margin-left: 30px;
+      font-weight: 900;
+      text-align: center;
+      width: 280px;
+      border-radius: 15px;
+      color: white;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: #4d913d;
+      margin: 0 auto;
+      display: block;
+      box-shadow: 4px 5px 30px #adadad;
+    }
+    .service-area {
+        padding-top: 0px !important;
+    }
+    .copyright-contrainer{
+      width: 100% !important;
+      text-align: center !important;
+    }
+    .owl-content {
+        padding-top: 100px;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+    .banner > p {
+        color: #fbfbfb;
+        width: 650px;
+        font-size: 17px;
+        margin: 0 auto;
+        margin-top: 15px;
+        margin-bottom: 50px;
+    }
+    .banner > a {
+      background-color: #db8f2b;
+      font-size: 21px;
+    }
+    section.page-section {
+        position: relative;
+        bottom: 35px;
+    }
+     .banner-2b > a {
+        font-size: 19px;
+    }
+     
+    .footer-content{
+      width: 100% !important;
+      padding-bottom: 55px !important;
+      text-align: center !important;
+    }
+    .social-mobile {
+      width: 25%;
+    }
+    .footer-copyright{
+      width: 100% !important;
+      text-align: center;
+    }
+    .footer-services-ul {
+        column-count: 2;
+        padding: 0px;
+        width: 50%;
+        margin: 0 auto;
+    }
+    .project > .col-md-5 {
+      width: 100% !important;
+      float: none !important;
+    }
+    .project > .col-md-7 {
+      width: 100% !important;
+      float: none !important;
+    }
+    .project {
+        margin-top: 0px;
+        margin-bottom: 40px;
+    }
+    
+    .project-left > h2 {
+        margin-top:40px;
+        margin-bottom:120px;
+        font-size: 28px;
+        margin-bottom: 21px;
+        text-align: left;
+    }
+    .project-left > p{
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    .project-right {
+        position: relative;
+        top: 0px;
+        transform: none;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .project-left {
+        position: relative;
+        top: 0px;
+        transform: none;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .banner > h1 {
+        margin-bottom: 0px;
+        font-size: 29px;
+        line-height: 47px;
+    }
+    .partners > .col-sm-6{
+        height: 135px;
+    }
+
+    .footer-container {
+        padding-bottom: 10px;
+        padding-top: 40px;
+    }
+    .footer-content{
+      padding-left: 30px;
+      height: 100%;
+      margin-bottom: 20px;
+      border-right: none;
+    }
+    .footer-content > a, .footer-content > section > div > a{
+      cursor: pointer;
+    }
+    .footer-content > h4, .footer-content > section > div > h4{
+        font-size: 26px;
+        color: black;
+    }
+
+    .footer-content > p, .footer-content > section > div > p{
+        font-size: 30px;
+        color: black;
+        font-size: 17px;
+        margin-bottom: 4px !important;
+
+    }
+    .col-img-4 {
+        width: 20%;
+        max-width: 50px;
+    }
+    .footer-logo > a {
+        display: flex;
+    }
+    .footer-logo > a > img.custom-logo {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 830px) {
+  .banner {
+      margin-top: 50px;
+  }
+  .banner > h1 {
+      margin: 0px;
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 60px;
+      color: white;
+      letter-spacing: 3px;
+      background-color: #3a7136;
+  }
+  .banner > .line-1 {
+      width: 520px !important;
+      padding: 10px;
+  }
+  .banner > .line-2 {
+      width: 270px !important;
+      position: relative;
+      padding: 10px;
+      bottom: 20px;
+  }
+}
+@media (max-width: 800px) {
+    .icons{
+        width: 50% !important;
+        margin: 0 auto !important;
+    }
+    .social-icons {
+         width: 25% !important;
+    }
+}
+@media (max-width: 767px) {
+    .page-title{
+      font-size: 35px;
+    }
+    
+    .page-content > h2{
+      font-size: 25px;
+    }
+    .page-content > p {
+        font-size: 19px;
+    }
+    .partners > .col-sm-6{
+        height: auto;
+    }
+    img.cover {
+        width: 100%;
+        height: 100%;
+    }
+  .footer-services-ul {
+      padding: 0px;
+      width: 95% !important;
+      margin-left: 0px !important;
+      padding-left: 135px !important;
+  }
+  .page-content > ul{
+    margin-left: 20px;
+  }
+}
+@media (max-width: 715px) {
+  .banner {
+      margin-top: 50px;
+  }
+  .banner > h1 {
+      margin: 0px;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 60px;
+      color: white;
+      letter-spacing: 3px;
+      background-color: #3a7136;
+  }
+  .banner > .line-1 {
+      width: 420px !important;
+      padding: 5px;
+  }
+  .banner > .line-2 {
+      width: 220px !important;
+      position: relative;
+      padding: 5px;
+      bottom: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .banner {
+      margin-top: 100px;
+  }
+  .banner > h1 {
+      margin: 0px;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 60px;
+      color: white;
+      letter-spacing: 3px;
+      background-color: none !important;
+  }
+  .banner > .line-1 {
+      width: 360px !important;
+      padding: 0px;
+  }
+  .banner > .line-2 {
+      width: 220px !important;
+      position: relative;
+      padding: 0px;
+      bottom: 15px;
+  }
+}
+/* Tablet Layout */
+@media (max-width: 1000px) {
+    .header-logo {
+        position: relative;
+        top: 0px;
+        bottom: 0px;
+        z-index: 1;
+        margin-left: 0px;
+    }
+    img.custom-logo {
+        width: 130px !important;
+        float: left !important;
+        height: 50px !important;
+        position: relative;
+        bottom: 9px;
+        margin-left: 0px;
+    }
+    .desktop-menu{
+        display: none;
+    }
+    .mobile-menu{
+        display: block;
+    }
+
+}
+@media (max-width: 755px){
+    .page-content > div > img{
+      width: 100% !important;
+    }
+    .page-content > img{
+      width: 100%;
+    }
+    .banner-2b > a {
+        font-size: 15px;
+    } 
+    .banner-2b > h2 {
+        font-size: 28px;
+    }
+    .banner-2b > p {
+        font-size: 21px;
+    }
+    .banner-2b {
+        position: relative !important;
+        bottom: 0px !important;
+    }
+}
+@media (max-width: 625px){
+    .footer-services-ul {
+      padding: 0px;
+      width: 95% !important;
+      margin-left: 0px !important;
+      padding-left: 95px !important;
+  }
+  .banner-2b > a {
+      font-size: 12px;
+  } 
+  .banner-2b > h2 {
+      font-size: 23px;
+  }
+  .banner-2b > p {
+      font-size: 17px;
+  }
+  .consult > a{
+    font-family: 'ubuntu_default';
+    font-size: 16px;
+    margin-left: 30px;
+    font-weight: 900;
+    text-align: center;
+    width: 200px;
+    border-radius: 15px;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #4d913d;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 4px 5px 30px #adadad;
+  }
+}
+@media(max-width: 600px){
+    .content > h1 {
+        font-size: 25px;
+        line-height: 43px;
+    }
+}
+
+@media (max-width: 575px) {
+  .banner {
+      margin-top: 20px;
+  }
+  .banner > h1 {
+      margin: 0px;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 60px;
+      color: white;
+      letter-spacing: 3px;
+      background-color: none !important;
+  }
+  i.fa.fa-angle-left, i.fa.fa-angle-right {
+      font-size: 45px;
+  }
+  .owl-nav {
+      position: relative;
+      bottom: 255px;
+      padding: 15px;
+  }
+  .banner > .line-1 {
+      width: 360px !important;
+      padding: 0px;
+  }
+  .banner > .line-2 {
+      width: 220px !important;
+      position: relative;
+      padding: 0px;
+      bottom: 15px;
+  }
+  .page-content{
+    padding: 20px !important;
+  }
+  .page-title{
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+  .page-content > h2{
+    font-size: 23px;
+  }
+
+    .footer-services-ul {
+      padding: 0px;
+      width: 95% !important;
+      margin-left: 0px !important;
+      padding-left: 65px !important;
+  }
+
+  .item.slider-bg {
+      height: 355px !important;
+  }
+
+}
+@media (max-width: 520px){
+
+  .banner {
+      margin-top: 20px;
+  }
+  .banner > h1 {
+      margin: 0px;
+      font-size: 10px;
+      font-weight: 900;
+      line-height: 60px;
+      color: white;
+      letter-spacing: 3px;
+      background-color: none !important;
+  }
+  i.fa.fa-angle-left, i.fa.fa-angle-right {
+      font-size: 45px;
+  }
+  .owl-nav {
+      position: relative;
+      bottom: 255px;
+      padding: 15px;
+  }
+  .banner > .line-1 {
+      width: 300px !important;
+      padding: 0px !important;
+  }
+  .banner > .line-2 {
+      width: 170px !important;
+      position: relative;
+      padding: 0px !important;
+      bottom: 5px;
+  }
+    .service-area > section > div > h1{
+        font-size: 29px;
+        font-weight: 900;
+        margin-top: 0px;
+    }
+    .service-area > section > div > p {
+        font-size: 16px;
+        line-height: 27px;
+    }
+    .contact-mobile{
+      display: none !important;
+    }
+    .contact-menu{
+      display:block !important;
+    }
+    .footer-services-ul {
+      padding: 0px;
+      width: 95% !important;
+      margin-left: 0px !important;
+      padding-left: 45px !important;
+  }
+  .button-mobile{
+    display: inline;
+  }
+  .button-desktop{
+    display: none;
+  }
+  .banner-2b > a {
+      font-size: 17px;
+  } 
+  .banner-2b > h2 {
+      font-size: 20px;
+  }
+  .banner-2b > p {
+      font-size: 15px;
+  }
+}
+@media (max-width: 475px){
+    .page-title{
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+    .page-content > h2{
+      font-size: 20px;
+    }
+    .page-content > br{
+      clear: both;
+    }
+    .page-content > p {
+        font-size: 17px;
+    }
+    .footer-services-ul {
+      padding: 0px;
+      width: 95% !important;
+      margin-left: 0px !important;
+      padding-left: 35px !important;
+  }
+}
+@media (max-width: 440px){
+    .copyright{
+        font-size: 12px !important;
+        line-height: 19px; 
+    }
+    .service-area > section > div > h1{
+        font-size: 24px;
+        font-weight: 900;
+        margin-top: 0px;
+    }
+    .service-area > section > div > p {
+        font-size: 15px;
+        line-height: 27px;
+    }
+
+    .footer-services-ul {
+      padding: 0px;
+      width: 98% !important;
+      margin-left: 0px !important;
+      padding-left: 29px !important;
+  }
+}
+@media (max-width: 375px){
+    .footer-services-ul {
+      padding: 0px;
+      width: 98% !important;
+      margin-left: 0px !important;
+      padding-left: 15px !important;
+  }
+}
+/* Mobile Phone Layout */
+@media (max-width: 480px) {
+    .item.slider-bg {
+        height: 390px !important;
+    }
+    .banner {
+        margin-top: 20px;
+    }
+    .banner > h1 {
+        margin: 0px;
+        font-size: 10px;
+        font-weight: 900;
+        line-height: 60px;
+        color: white;
+        letter-spacing: 3px;
+        background-color: none !important;
+    }
+    i.fa.fa-angle-left, i.fa.fa-angle-right {
+        font-size: 45px;
+    }
+    .owl-nav {
+        position: relative;
+        bottom: 255px;
+        padding: 15px;
+    }
+    .banner > .line-1 {
+        width: 100% !important;
+        padding: 0px !important;
+    }
+    .banner > .line-2 {
+        width: 50% !important;
+        position: relative;
+        padding: 0px !important;
+        bottom: 5px;
+    }
+    .contact{
+        font-size: 18px !important;
+        margin-top: 6px !important;        
+    }
+    .footer > a > img.custom-logo {
+        width: 100px;
+        height: 40px;
+        margin-top: 10px;
+    }
+    .contact {
+        font-size: 15px !important;
+        margin-top: 0px !important;
+    }
+    .contact-footer{
+        padding-top: 7px !important;
+    }
+    .bottom-footer{
+        padding-top: 25px !important;
+        padding-bottom: 25px !important;
+    }
+}
+
+@media (max-width: 390px){
+    .item.slider-bg {
+        height: 390px !important;
+    }
+    .banner {
+        margin-top: 20px;
+    }
+    .banner > h1 {
+        margin: 0px;
+        padding: 0px;
+        font-size: 10px;
+        font-weight: 900;
+        line-height: 60px;
+        color: white;
+        letter-spacing: 1px !important;
+    }
+    i.fa.fa-angle-left, i.fa.fa-angle-right {
+        font-size: 45px;
+    }
+    .owl-nav {
+        position: relative;
+        bottom: 255px;
+        padding: 15px;
+    }
+    .banner > .line-1 {
+        width: 90% !important;
+        padding: 0px !important;
+    }
+    .banner > .line-2 {
+        width: 50% !important;
+        position: relative;
+        padding: 0px !important;
+        bottom: 5px;
+    }
+}
+
+@media (min-width: 1046px) {
+
+}
+@media (max-width: 1045px) {
+
+  .service-block > h2 {
+      font-size: 25px;
+      font-weight: 900;
+      margin-bottom: 5px;
+   }
+}
+@media (max-width: 992px){
+
+    .service-block > h2 {
+        font-size: 22px;
+        font-weight: 900;
+        margin-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .contact-menu{
+      display:none;
+    }
+}
+@media (max-width: 992px){
+
+    .service-block > h2 {
+        font-size: 22px;
+        font-weight: 900;
+        margin-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media (max-width: 650px){
+
+
+}
